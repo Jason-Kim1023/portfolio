@@ -13,7 +13,8 @@ app.use("/", router);
 // Serve static files from the React app build directory
 app.use(express.static(path.join(__dirname, 'build')));
 
-app.listen(5000, () => console.log("Server Running on port 5000"));
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server Running on port ${PORT}`));
 console.log(process.env.EMAIL_USER);
 console.log(process.env.EMAIL_PASS);
 

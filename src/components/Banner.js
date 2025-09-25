@@ -10,10 +10,10 @@ export const Banner = () => {
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(300 - Math.random() * 100);
   const [hasAnimated, setHasAnimated] = useState(false);
-  const toRotate = [ "Recent Graduate from UVA", "Full Stack Developer" ];
   const period = 2000;
 
   const tick = useCallback(() => {
+    const toRotate = [ "Recent Graduate from UVA", "Full Stack Developer" ];
     let i = loopNum % toRotate.length;
     let fullText = toRotate[i];
     let updatedText = isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length + 1);
@@ -32,7 +32,7 @@ export const Banner = () => {
       setLoopNum(loopNum + 1);
       setDelta(500);
     }
-  }, [loopNum, isDeleting, text.length, period, toRotate]);
+  }, [loopNum, isDeleting, text.length, period]);
 
   useEffect(() => {
     let ticker = setInterval(() => {
