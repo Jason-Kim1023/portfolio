@@ -1,16 +1,31 @@
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import { ProjectCard } from "./ProjectCard";
+import { ProjectModal } from "./ProjectModal";
+import { useState } from "react";
 import metlifeImg from "../assets/img/metlife.jpeg";
 import rangerImg from "../assets/img/ranger.png";
 import uvaImg from "../assets/img/UVA.png";
 import aslImg from "../assets/img/asl.png";
 import originImg from "../assets/img/origintrail.png";
 import quordleImg from "../assets/img/quordle.png";
+import quordleVideo from "../assets/img/quordle-demo.webm";
 import newhopeImg from "../assets/img/newhope.png";
 import jasonImg from "../assets/img/jason.jpg";
 import 'animate.css';
 
 export const Projects = () => {
+  const [showModal, setShowModal] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  const handleProjectClick = (project) => {
+    setSelectedProject(project);
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setSelectedProject(null);
+  };
 
   const projects = [
     {
@@ -48,6 +63,7 @@ export const Projects = () => {
       title: "Quordle CSP Solver",
       description: "AI/ML Application",
       imgUrl: quordleImg,
+      video: quordleVideo,
       details: [
         "Developed and tested a Constraint Satisfaction Problem (CSP) solver for the Quordle game, achieving a 98% win rate in simulations with 9 guesses.",
         "Implemented helper functions and forward-checking algorithms in Python to optimize word selection and solution efficiency.",
@@ -104,6 +120,7 @@ export const Projects = () => {
                               <ProjectCard
                                 key={index}
                                 {...project}
+                                onClick={() => handleProjectClick(project)}
                                 />
                             )
                           })
@@ -113,29 +130,43 @@ export const Projects = () => {
                     <Tab.Pane eventKey="experience">
                       <Row>
                         <Col size={12} sm={6} md={6}>
-                          <div className="proj-imgbx experience-card">
+                          <div className="proj-imgbx experience-card clickable-card" onClick={() => handleProjectClick({
+                            title: "Software Engineer Intern",
+                            description: "MetLife Inc. - May 2023 - August 2023",
+                            imgUrl: metlifeImg,
+                            details: [
+                              "Tech: Java, Oracle SQL, Azure DevOps, Docker",
+                              "Launched report creation tool for MetLife's ledger system in Agile environment with cross-functional teams.",
+                              "Results: Processed 1M+ data points for $19.2B VALE project, 20% efficiency improvement, 15% faster provisioning."
+                            ]
+                          })}>
                             <img src={metlifeImg} alt="MetLife Experience" />
                             <div className="proj-txtx">
                               <h4>Software Engineer Intern</h4>
                               <span>MetLife Inc. - May 2023 - August 2023</span>
-                              <div className="experience-details">
-                                <p><strong>Tech:</strong> Java, Oracle SQL, Azure DevOps, Docker</p>
-                                <p>Launched report creation tool for MetLife's ledger system in Agile environment with cross-functional teams.</p>
-                                <p><strong>Results:</strong> Processed 1M+ data points for $19.2B VALE project, 20% efficiency improvement, 15% faster provisioning.</p>
+                              <div className="click-hint">
+                                <small>Click to view details</small>
                               </div>
                             </div>
                           </div>
                         </Col>
                         <Col size={12} sm={6} md={6}>
-                          <div className="proj-imgbx experience-card">
+                          <div className="proj-imgbx experience-card clickable-card" onClick={() => handleProjectClick({
+                            title: "Contract Forward Deployed Test Engineer",
+                            description: "Ranger - June 2025 - July 2025",
+                            imgUrl: rangerImg,
+                            details: [
+                              "Tech: TypeScript, JavaScript, Playwright, Github Actions",
+                              "QA Engineer leading E2E testing for $100K+ contracts. Developed 20+ Playwright tests boosting test coverage to 75%.",
+                              "Results: Automated test suites via Github Actions, seamless CI pipelines, accelerated deployment cycles."
+                            ]
+                          })}>
                             <img src={rangerImg} alt="Ranger Experience" />
                             <div className="proj-txtx">
                               <h4>Contract Forward Deployed Test Engineer</h4>
                               <span>Ranger - June 2025 - July 2025</span>
-                              <div className="experience-details">
-                                <p><strong>Tech:</strong> TypeScript, JavaScript, Playwright, Github Actions</p>
-                                <p>QA Engineer leading E2E testing for $100K+ contracts. Developed 20+ Playwright tests boosting test coverage to 75%.</p>
-                                <p><strong>Results:</strong> Automated test suites via Github Actions, seamless CI pipelines, accelerated deployment cycles.</p>
+                              <div className="click-hint">
+                                <small>Click to view details</small>
                               </div>
                             </div>
                           </div>
@@ -148,6 +179,11 @@ export const Projects = () => {
           </Col>
         </Row>
       </Container>
+      <ProjectModal 
+        show={showModal} 
+        onHide={handleCloseModal} 
+        project={selectedProject} 
+      />
     </section>
   )
 }

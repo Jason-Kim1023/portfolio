@@ -1038,3 +1038,69 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   opacity: 0.3;
   animation: coolGlow 3s ease-in-out infinite;
 }
+
+/* Modal Positioning Fix */
+.project-modal .modal-dialog {
+  margin-top: 2rem !important;
+  margin-bottom: 2rem !important;
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+  max-width: 700px;
+}
+
+.project-modal .modal-content {
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+}
+
+.project-modal {
+  z-index: 9999 !important;
+}
+
+/* Cool Modal Animations */
+@keyframes modalSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slideAcross {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Enhanced Modal Styling */
+.project-modal .modal-content {
+  border: none !important;
+  border-radius: 12px !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5) !important;
+  overflow: hidden;
+  background-color: #1a1a1a !important;
+}
+
+.project-modal .modal-dialog {
+  border: none !important;
+  box-shadow: none !important;
+  animation: modalSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}

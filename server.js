@@ -15,16 +15,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server Running on port ${PORT}`));
-console.log(process.env.EMAIL_USER);
-console.log(process.env.EMAIL_PASS);
 
-const contactEmail = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.EMAIL_USER || "jasonjihoonkimmail@gmail.com",
-    pass: process.env.EMAIL_PASS || ""
-  },
-});
 
 contactEmail.verify((error) => {
   if (error) {
