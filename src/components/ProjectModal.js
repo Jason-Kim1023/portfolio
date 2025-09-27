@@ -173,8 +173,43 @@ export const ProjectModal = ({ show, onHide, project }) => {
         borderBottomLeftRadius: '12px',
         borderBottomRightRadius: '12px',
         padding: '1.5rem',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        gap: '1rem'
       }}>
+        {project.githubUrl && (
+          <Button 
+            variant="outline-light" 
+            href={project.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ 
+              borderColor: '#333', 
+              color: '#fff',
+              backgroundColor: '#333',
+              border: '2px solid #333',
+              borderRadius: '8px',
+              padding: '0.5rem 2rem',
+              fontWeight: '600',
+              fontSize: '1rem',
+              transition: 'all 0.3s ease',
+              textDecoration: 'none'
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.backgroundColor = '#fff';
+              e.target.style.color = '#1a1a1a';
+              e.target.style.transform = 'translateY(-2px)';
+              e.target.style.boxShadow = '0 4px 12px rgba(255, 255, 255, 0.3)';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.backgroundColor = '#333';
+              e.target.style.color = '#fff';
+              e.target.style.transform = 'translateY(0)';
+              e.target.style.boxShadow = 'none';
+            }}
+          >
+            View on GitHub
+          </Button>
+        )}
         <Button 
           variant="outline-light" 
           onClick={handleClose}

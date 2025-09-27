@@ -40,13 +40,14 @@ export const Projects = () => {
       ]
     },
     {
-      title: "Sign Language Detector",
+      title: "ASL Alphabet Detector & AI Translation System",
       description: "AI/ML Application",
       imgUrl: aslImg,
+      githubUrl: "https://github.com/Jason-Kim1023/signLanguage",
       details: [
-        "Real-time Sign Language Detector with Python, TensorFlow, OpenCV; trained on 5,000+ gesture images achieving ~90% accuracy across 20+ signs at ~30 FPS.",
-        "Extended into AI prototype integrating gesture recognition with LLMs (LangChain + LLaMA 3/Phi-3) and gTTS for sign-to-text and sign-to-speech translation.",
-        "Mission-driven: advancing accessibility by bridging communication barriers for the Deaf and hard-of-hearing through inclusive, real-time AI translation tools."
+        "Built a real-time ASL alphabet detector with Python, scikit-learn, and OpenCV; trained an MLPClassifier on hand landmark data using MediaPipe, achieving ~85% accuracy across 26 letters at ~30 FPS with debouncing and confidence thresholds.",
+        "Extended into an agentic AI prototype by integrating gesture recognition with LLMs (LangChain + Ollama/LLaMA 3) and gTTS, enabling autonomous sign-to-text and sign-to-speech translation with natural language processing for word segmentation and spelling correction.",
+        "Mission-driven: advancing accessibility by bridging communication barriers for the Deaf and hard-of-hearing through inclusive, real-time AI translation tools that leverage LLMs to convert sign language into fluent, natural English for broader understanding."
       ]
     },
     {
@@ -64,6 +65,7 @@ export const Projects = () => {
       description: "AI/ML Application",
       imgUrl: quordleImg,
       video: quordleVideo,
+      githubUrl: "https://github.com/Jason-Kim1023/CSP-Quordle",
       details: [
         "Developed and tested a Constraint Satisfaction Problem (CSP) solver for the Quordle game, achieving a 98% win rate in simulations with 9 guesses.",
         "Implemented helper functions and forward-checking algorithms in Python to optimize word selection and solution efficiency.",
@@ -74,6 +76,7 @@ export const Projects = () => {
       title: "New Hope Ministry App",
       description: "Full Stack Web Application",
       imgUrl: newhopeImg,
+      githubUrl: "https://github.com/Jason-Kim1023/UpperRoomApp",
       details: [
         "Built a Flask (Python) web app with role-based authentication (Admin & Welcomer) for managing church greeting workflows.",
         "Developed Admin dashboard (Flask + Jinja2 + HTML/CSS) to manage users, assign members, and set weekly topics/activities.",
@@ -85,6 +88,7 @@ export const Projects = () => {
       title: "Personal Portfolio Website",
       description: "Full Stack Web Application",
       imgUrl: jasonImg,
+      githubUrl: "https://github.com/Jason-Kim1023/portfolio",
       details: [
         "Built a modern, responsive portfolio website using React.js with React-Bootstrap components and custom CSS animations.",
         "Implemented dynamic animations with animate.css, react-on-screen, and custom keyframe animations for engaging user experience.",
